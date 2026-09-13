@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "_build_backend"
+backend-path = ["."]
+
+[project]
+name = "cardano-cip1852"
+version = "0.1.0"
+description = "Cardano CIP-1852 derive shell — payment and stake tags."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [{name = "Vault Labs"}]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "click>=8.1",
+    "pycryptodome>=3.20"
+]
+
+[project.scripts]
+adacip = "adacip.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["adacip*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
